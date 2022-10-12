@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Reveal Animation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<style>
+    .bebas{
+        font-family: 'Bebas Neue', cursive;
+    }
+    .char {
+        transform: translateY(115px);
+        transition: transform .5s;
+    }
+    .clip-path{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+</style>
+<body>
+    <header class="grid h-screen place-content-center">
+        <h1 id="my-text" class="text-6xl uppercase  bebas clip-path">Mohd Ammar</h1>
+    </header>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    
+    <script>
+        const myText = new SplitType('#my-text')
+
+        gsap.to('.char', {
+            y: 0,
+            stagger: 0.05,
+            delay: 0.2,
+            duration: .1,
+            ease: "expo.out"
+        })
+    </script>
+</body>
+</html>
